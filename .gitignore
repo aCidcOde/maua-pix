@@ -7,6 +7,7 @@
 /public/bundles/
 /var/
 .data/
+.env
 /vendor/
 workspace.xml
 .idea/
