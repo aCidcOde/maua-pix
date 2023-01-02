@@ -1,2 +1,7 @@
-# maua-pix
-Projeto para API`s Rest de Multiplas cobranças e PAG usando PIX
+# DATA MAUA
+
+Ferramenta para armazenamento de dados de clientes e hub de Integrações
+
+## Credits
+
+Desenvolvidor por [Sistema Venda Direta](https://sistemavendadireta.com.br)
