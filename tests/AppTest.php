@@ -9,6 +9,7 @@ class AppTest extends TestCase {
     public function testAlgo() {
 
         $this->assertEquals(2,2);
+
     }
 
 
