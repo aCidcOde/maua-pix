@@ -18,7 +18,15 @@ class HelloWorld {
      */
 
     public function index(): void {
-        dd("testee");
+        echo phpinfo();
+    }
+
+    /**
+     * @Route("helloworld/info")
+     */
+
+    public function info(): Response {
+        return new Response(phpinfo(), Response::HTTP_FORBIDDEN);
     }
 
 }
