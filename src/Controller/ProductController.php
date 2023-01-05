@@ -44,7 +44,7 @@ class ProductController extends AbstractController
     }
 
     /**
-     * @Route("/product/{id}", name="product_show")
+     * @Route("/product/{id}", name="product_show", defaults: ['id' =>  0])
      */
     public function show(int $id, ProductRepository $productRepository): Response
     {
