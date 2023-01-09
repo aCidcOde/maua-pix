@@ -64,7 +64,7 @@ services:
       MYSQL_ROOT_PASSWORD: 123mudar
       MYSQL_DB: ${MYSQL_DB:-app}
       # You should definitely change the password in production
-      MYSQL_PASSWORD;: ${MYSQL_PASSWORD:-!ChangeMe!}
+      MYSQL_PASSWORD;: ${MYSQL_PASSWORD:-123mudar}
       MYSQL_USER: ${MYSQL_USER:-app}
       MYSQL_ROOT_HOST: localhost
     volumes:

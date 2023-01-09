@@ -4,6 +4,9 @@ namespace App\Controller;
 
 Use App\Entity\Bundle;
 use App\Entity\Product;
+use App\Form\ProductFormType;
+use Doctrine\ORM\EntityManagerInterface;
+
 use App\Repository\ProductRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -12,6 +15,15 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ProductController extends AbstractController
 {
+
+    private $em;
+
+    public function __construct(EntityManagerInterface $em)
+    {
+        $this->em = $em;
+        
+    }
+
     /**
      * @Route("/product/index", name="app_product")
      */
@@ -20,6 +32,19 @@ class ProductController extends AbstractController
         return $this->render('product/index.html.twig', [
             'controller_name' => 'ProductController',
         ]);
+    }
+
+    #[Route('/list', name: 'lists')]
+    public function list(): Void 
+    {
+        $repository = $this->em->getRepository(Product::class);
+        $products = $repository->getClassName();
+
+        dd($products);
+
+
+
+
     }
 
     /**
@@ -44,7 +69,7 @@ class ProductController extends AbstractController
     }
 
     /**
-     * @Route("/product/{id}", name="product_show", defaults: ['id' =>  0])
+     * @Route("/product/{id}", name="product_show")
      */
     public function show(int $id, ProductRepository $productRepository): Response
     {
