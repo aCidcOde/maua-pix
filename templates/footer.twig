@@ -23,3 +23,8 @@
 
 	<!-- Custom js for this page -->
   <script src="{{ asset('assets/js/dashboard-light.js') }}"></script>
+
+   {% block javascripts %}
+		{{ encore_entry_script_tags('app') }}
+	{% endblock %}
+  	<!-- partial:partials/_footer.html -->
