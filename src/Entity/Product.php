@@ -32,6 +32,11 @@ class Product
      */
     private $description;
 
+    /**
+     * @ORM\OneToOne(targetEntity=ProductImage::class, mappedBy="Product", cascade={"persist", "remove"})
+     */
+    private $productImage;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +74,23 @@ class Product
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getProductImage(): ?ProductImage
+    {
+        return $this->productImage;
+    }
+
+    public function setProductImage(ProductImage $productImage): self
+    {
+        // set the owning side of the relation if necessary
+        if ($productImage->getProduct() !== $this) {
+            $productImage->setProduct($this);
+        }
+
+        $this->productImage = $productImage;
 
         return $this;
     }
